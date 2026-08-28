@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A350 // FUTURE OF FLIGHT</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:#05070c;color:#f4f7ff;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,190,255,.12),transparent 28%),radial-gradient(circle at 85% 70%,rgba(75,0,255,.12),transparent 30%);pointer-events:none;z-index:-2}
+body::after{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:-1}
+nav{position:fixed;top:0;left:0;width:100%;padding:20px 6%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(5,7,12,.65);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+.logo{font-size:20px;font-weight:900;letter-spacing:3px}.logo span{color:#55dfff}
+.nav-links{display:flex;gap:28px;list-style:none}.nav-links a{color:#b8c4d8;text-decoration:none;font-size:13px;font-weight:600;transition:.3s}.nav-links a:hover{color:#55dfff}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 7% 70px}
+.hero-image{position:absolute;inset:0;background:linear-gradient(90deg,#05070c 5%,rgba(5,7,12,.65) 40%,rgba(5,7,12,.15)),linear-gradient(0deg,#05070c 0%,transparent 35%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/B-LRA_Cathay_Pacific_Airbus_A350-900_(34095482335).jpg");background-size:cover;background-position:center;opacity:.7;z-index:-1}
+.hero-content{max-width:750px}.status{display:inline-flex;align-items:center;gap:10px;padding:9px 15px;border:1px solid rgba(85,223,255,.3);border-radius:999px;background:rgba(0,190,255,.07);color:#55dfff;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#55dfff;box-shadow:0 0 15px #55dfff;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.3;transform:scale(.7)}}
+h1{font-size:clamp(70px,13vw,170px);line-height:.8;letter-spacing:-8px;font-weight:900;margin-bottom:30px;background:linear-gradient(120deg,white,#a5dfff,#55dfff);-webkit-background-clip:text;color:transparent}
+.hero-subtitle{color:#b5c2d6;font-size:clamp(16px,2vw,21px);line-height:1.7;max-width:650px}
+.buttons{display:flex;gap:15px;margin-top:35px;flex-wrap:wrap}.btn{padding:14px 22px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;transition:.3s}
+.btn-primary{color:#001018;background:#55dfff;box-shadow:0 0 30px rgba(85,223,255,.2)}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(85,223,255,.45)}
+.btn-secondary{color:white;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04)}.btn-secondary:hover{border-color:#55dfff}
+section{padding:110px 7%}.section-label{color:#55dfff;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}.section-title{font-size:clamp(35px,5vw,65px);letter-spacing:-3px;margin-bottom:50px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{padding:30px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);backdrop-filter:blur(15px);border-radius:15px;transition:.35s}.stat:hover{transform:translateY(-6px);border-color:rgba(85,223,255,.35)}
+.stat-number{font-size:38px;font-weight:800;margin-bottom:8px}.stat-name{color:#7e8ca3;font-size:12px;text-transform:uppercase;letter-spacing:1.5px}
+.models{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}.model{position:relative;min-height:480px;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.1);background:#0b0f17}.model-image{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s}.model:hover .model-image{transform:scale(1.07)}
+.a350-900{background-image:linear-gradient(0deg,#05070c,transparent 65%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Delta_Airbus_A350-900_N501DN.jpg")}.a350-1000{background-image:linear-gradient(0deg,#05070c,transparent 65%),url("https://nowboarding.changiairport.com/content/dam/canowboarding/article-assets/discover-changi/Inside-the-world-of-singapore%27s-plane-spotters/Thrill%20of%20the%20chase%2001.jpg")}
+.model-content{position:absolute;bottom:0;padding:35px;width:100%;background:linear-gradient(transparent,rgba(3,5,10,.95))}.model h3{font-size:38px;margin-bottom:12px}.model p{color:#a8b4c6;line-height:1.6}
+.tech-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.tech-image{min-height:520px;border-radius:20px;background:linear-gradient(0deg,rgba(5,7,12,.3),transparent),url("https://farm3.staticflickr.com/2931/14515807680_2a1460a411_b.jpg");background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.1)}
+.data-list{display:grid;gap:10px}.data-row{display:flex;justify-content:space-between;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.08)}.data-row span:first-child{color:#78869b}.data-row span:last-child{font-weight:700;text-align:right}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{padding:35px;border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08)}.feature-icon{font-size:32px;margin-bottom:22px}.feature h3{font-size:20px;margin-bottom:12px}.feature p{color:#8996a9;line-height:1.7;font-size:14px}
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:260px 260px;gap:15px}.gallery-item{border-radius:16px;overflow:hidden;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.08);transition:.4s}.gallery-item:hover{transform:scale(.99);filter:brightness(1.15)}
+.gallery-main{grid-row:span 2;background-image:linear-gradient(0deg,rgba(5,7,12,.35),transparent),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/B-LRA_Cathay_Pacific_Airbus_A350-900_(34095482335).jpg")}
+.gallery-cockpit{background-image:url("https://farm3.staticflickr.com/2931/14515807680_2a1460a411_b.jpg")}.gallery-airbus{background-image:url("https://nowboarding.changiairport.com/content/dam/canowboarding/article-assets/discover-changi/Inside-the-world-of-singapore%27s-plane-spotters/Thrill%20of%20the%20chase%2001.jpg")}
+footer{padding:60px 7%;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}footer p{color:#657288;font-size:12px;line-height:1.7}.footer-title{font-size:20px;font-weight:900;letter-spacing:2px}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s,transform .8s}.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:850px){.nav-links{display:none}.hero{min-height:90vh}h1{letter-spacing:-5px}.stats{grid-template-columns:repeat(2,1fr)}.models,.tech-layout{grid-template-columns:1fr}.features{grid-template-columns:1fr}.gallery{grid-template-columns:1fr;grid-template-rows:300px 220px 220px}.gallery-main{grid-row:auto}section{padding:80px 6%}}
+@media(max-width:500px){.stats{grid-template-columns:1fr}.stat-number{font-size:32px}.model{min-height:400px}.model h3{font-size:30px}.tech-image{min-height:350px}}
+</style>
+</head>
+<body>
+<nav><div class="logo">A350<span>//</span>INFO</div><ul class="nav-links"><li><a href="#overview">OVERVIEW</a></li><li><a href="#models">MODELLE</a></li><li><a href="#technology">TECHNOLOGIE</a></li><li><a href="#gallery">GALERIE</a></li></ul></nav>
+
+<header class="hero"><div class="hero-image"></div><div class="hero-content">
+<div class="status"><span class="status-dot"></span>NEXT GENERATION WIDEBODY</div>
+<h1>A350</h1>
+<p class="hero-subtitle">Eine neue Generation des Langstreckenflugs. Aerodynamik, moderne Materialien, effiziente Triebwerke und eine High-Tech-Kabine in einem Flugzeug.</p>
+<div class="buttons"><a href="#overview" class="btn btn-primary">ENTDECKEN →</a><a href="#technology" class="btn btn-secondary">TECHNIK</a></div>
+</div></header>
+
+<section id="overview" class="reveal"><div class="section-label">01 / OVERVIEW</div><h2 class="section-title">Gebaut für<br>die Zukunft.</h2>
+<div class="stats"><div class="stat"><div class="stat-number">15.750</div><div class="stat-name">km Reichweite*</div></div><div class="stat"><div class="stat-number">0.85</div><div class="stat-name">Mach Reisegeschwindigkeit</div></div><div class="stat"><div class="stat-number">64,75</div><div class="stat-name">m Spannweite</div></div><div class="stat"><div class="stat-number">480</div><div class="stat-name">max. Sitze**</div></div></div></section>
+
+<section id="models" class="reveal"><div class="section-label">02 / FAMILY</div><h2 class="section-title">Zwei Größen.<br>Eine Plattform.</h2>
+<div class="models"><article class="model"><div class="model-image a350-900"></div><div class="model-content"><h3>A350-900</h3><p>Die vielseitige Variante für Langstrecken. Typische 3-Klassen-Konfiguration: 332–352 Passagiere.</p></div></article>
+<article class="model"><div class="model-image a350-1000"></div><div class="model-content"><h3>A350-1000</h3><p>Die längere Variante für mehr Kapazität. Typische 3-Klassen-Konfiguration: bis zu rund 400 Passagiere.</p></div></article></div></section>
+
+<section id="technology" class="reveal"><div class="section-label">03 / TECHNOLOGY</div><h2 class="section-title">Technik im<br>Cockpit.</h2>
+<div class="tech-layout"><div class="tech-image"></div><div class="data-list">
+<div class="data-row"><span>Flugzeug</span><span>Airbus A350</span></div><div class="data-row"><span>Triebwerk -900</span><span>Rolls-Royce Trent XWB-84</span></div><div class="data-row"><span>Triebwerk -1000</span><span>Rolls-Royce Trent XWB-97</span></div><div class="data-row"><span>Reisegeschwindigkeit</span><span>Mach 0,85</span></div><div class="data-row"><span>A350-900 Länge</span><span>66,80 m</span></div><div class="data-row"><span>A350-1000 Länge</span><span>73,78 m</span></div><div class="data-row"><span>Spannweite</span><span>64,75 m</span></div><div class="data-row"><span>Rumpfbreite</span><span>5,96 m</span></div>
+</div></div></section>
+
+<section class="reveal"><div class="section-label">04 / FEATURES</div><h2 class="section-title">Warum der A350?</h2>
+<div class="features"><div class="feature"><div class="feature-icon">◈</div><h3>Advanced Materials</h3><p>Mehr als 70 % des Flugzeugs bestehen aus fortschrittlichen Materialien wie Verbundwerkstoffen.</p></div>
+<div class="feature"><div class="feature-icon">◉</div><h3>Effizienz</h3><p>Moderne Aerodynamik und Triebwerke reduzieren Treibstoffverbrauch und Emissionen gegenüber früheren Generationen.</p></div>
+<div class="feature"><div class="feature-icon">✦</div><h3>Airspace Cabin</h3><p>Eine moderne Kabine mit großen Gepäckfächern, Ambientebeleuchtung, fortschrittlicher Luftaufbereitung und hohem Komfort auf Langstrecken.</p></div></div></section>
+
+<section id="gallery" class="reveal"><div class="section-label">05 / VISUAL ARCHIVE</div><h2 class="section-title">A350 // VISUALS</h2>
+<div class="gallery"><div class="gallery-item gallery-main"></div><div class="gallery-item gallery-cockpit"></div><div class="gallery-item gallery-airbus"></div></div></section>
+
+<footer><div><div class="footer-title">A350//INFO</div><p>Fan-made Informationsseite über die Airbus A350 Familie.</p></div><div><p>* Reichweite abhängig von Variante und Konfiguration.<br>** Maximale Sitzplatzkapazität abhängig von Variante.</p></div></footer>
+
+<script>
+const elements=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible")})},{threshold:.12});
+elements.forEach(element=>observer.observe(element));
+window.addEventListener("scroll",()=>{const hero=document.querySelector(".hero-image");if(hero)hero.style.transform=`translateY(${window.scrollY*.18}px)`});
+</script>
+</body>
+</html>
